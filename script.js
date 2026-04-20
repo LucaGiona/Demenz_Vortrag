@@ -62,11 +62,22 @@ themeToggleBtn.addEventListener("click", () => {
 
 copySlideBtn.addEventListener("click", copyCurrentSlide);
 
-Reveal.initialize({
-  hash: true,
-  slideNumber: true,
-  transition: "fade",
-  controls: true,
-  progress: true,
-  center: true
-});
+function initReveal() {
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: "fade",
+    controls: true,
+    progress: true,
+    center: true,
+    width: "100%",
+    height: "100%",
+    margin: 0.05
+  });
+}
+
+if (typeof Reveal !== "undefined") {
+  initReveal();
+} else {
+  window.addEventListener("load", initReveal);
+}

@@ -26,6 +26,9 @@ body.theme-light {
 
 html,
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   background: var(--bg) !important;
   color: var(--text);
   transition: background 0.3s ease, color 0.3s ease;
@@ -34,6 +37,11 @@ body {
 /* reveal.js fügt .reveal-viewport auf body – auch das überschreiben */
 body.reveal-viewport {
   background: var(--bg) !important;
+}
+
+.reveal {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .reveal,
