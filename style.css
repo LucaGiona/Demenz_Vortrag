@@ -1,0 +1,251 @@
+:root {
+  --bg: #0f1115;
+  --text: #f4f4f4;
+  --muted: #c9c9c9;
+  --accent: #7fd1ff;
+  --panel: rgba(15, 17, 21, 0.82);
+  --border: rgba(255, 255, 255, 0.18);
+  --button-bg: rgba(255, 255, 255, 0.08);
+  --button-text: #ffffff;
+  --button-hover: rgba(255, 255, 255, 0.16);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body.theme-light {
+  --bg: #f7f7f7;
+  --text: #171717;
+  --muted: #444444;
+  --accent: #0066cc;
+  --panel: rgba(255, 255, 255, 0.88);
+  --border: rgba(0, 0, 0, 0.12);
+  --button-bg: rgba(0, 0, 0, 0.05);
+  --button-text: #111111;
+  --button-hover: rgba(0, 0, 0, 0.12);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+html,
+body {
+  background: var(--bg) !important;
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* reveal.js fügt .reveal-viewport auf body – auch das überschreiben */
+body.reveal-viewport {
+  background: var(--bg) !important;
+}
+
+.reveal,
+.reveal .slides {
+  background: transparent !important;
+  color: var(--text) !important;
+  transition: color 0.3s ease;
+}
+
+.reveal .slides section {
+  color: var(--text) !important;
+  background: transparent !important;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  letter-spacing: 1px;
+  color: var(--text) !important;
+}
+
+.reveal p,
+.reveal li,
+.reveal ol,
+.reveal ul {
+  color: var(--text) !important;
+}
+
+.reveal .controls,
+.reveal .progress {
+  color: var(--accent) !important;
+}
+
+.accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.small {
+  font-size: 0.78em;
+  color: var(--muted);
+}
+
+/* ─── Globale Navigation ──────────────────────────────────────── */
+.top-nav {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Gemeinsame Basis für alle Nav-Elemente */
+.nav-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--button-text);
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-btn:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+.nav-btn:active {
+  transform: translateY(0);
+}
+
+/* Runde Icon-Buttons (links & rechts) */
+.icon-btn {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+
+/* Mittlerer "Zum Anfang"-Button */
+.home-btn {
+  height: 60px;
+  padding: 0 22px;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* ─── Jump-Link auf Titelfolie ───────────────────────────────── */
+.jump-links {
+  margin-top: 2rem;
+}
+
+.jump-link {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--button-text);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 12px 20px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.jump-link:hover {
+  background: var(--button-hover);
+  transform: translateY(-1px);
+}
+
+/* ─── Toast ──────────────────────────────────────────────────── */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 18px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 9999;
+  box-shadow: var(--shadow);
+}
+
+.copy-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+/* ─── Tablet ─────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .reveal h1 { font-size: 1.9em; }
+  .reveal h2 { font-size: 1.35em; }
+  .reveal h3 { font-size: 1.05em; }
+
+  .reveal p,
+  .reveal li {
+    font-size: 0.8em;
+  }
+
+  .icon-btn {
+    width: 52px;
+    height: 52px;
+  }
+
+  .home-btn {
+    height: 52px;
+    padding: 0 18px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ─── Smartphone ──────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .top-nav {
+    top: 12px;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Auf kleinen Screens nur das Icon zeigen, Text ausblenden */
+  .home-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    font-size: 0;   /* Text unsichtbar */
+    gap: 0;
+  }
+
+  .home-btn svg {
+    flex-shrink: 0;
+  }
+
+  .jump-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .reveal .slides {
+    width: 100%;
+  }
+
+  .reveal p,
+  .reveal li {
+    line-height: 1.4;
+  }
+}
+
+.reveal .slides section.luca {
+  background-color: rgb(223, 15, 255) !important;
+}
+.reveal .slides section.luca2 {
+  background-color: rgb(234, 189, 7) !important;
+}
