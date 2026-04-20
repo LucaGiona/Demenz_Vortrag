@@ -69,10 +69,10 @@ function initReveal() {
     transition: "fade",
     controls: true,
     progress: true,
-    center: true,
-    width: "100%",
-    height: "100%",
-    margin: 0.05
+    center: false,
+    margin: 0.04,
+    minScale: 0.2,
+    maxScale: 1.5
   });
 }
 

@@ -54,6 +54,7 @@ body.reveal-viewport {
 .reveal .slides section {
   color: var(--text) !important;
   background: transparent !important;
+  margin-top: 3em;
 }
 
 .reveal h1,
@@ -256,4 +257,19 @@ body.reveal-viewport {
 }
 .reveal .slides section.luca2 {
   background-color: rgb(234, 189, 7) !important;
+}
+
+@media (max-width: 600px), (max-height: 750px) {
+  .reveal .slides section {
+    padding-top: 1.4em;
+    box-sizing: border-box;
+    margin-top: 2em;
+  }
+
+}
+
+@media (min-height: 940px) {
+  .reveal .slides section {
+    margin-top: 12em;
+  }
 }
